@@ -1,0 +1,2 @@
+# cheaptalker
+an private grammar
