@@ -2,16 +2,17 @@ function parsej(m::String)
  token = []
  rjo = r"(.+)(wo|ha|ni|ru)"
  pm  = m
- tks = ""
  while true
-   tks = match(rjo, pm)
-   if nothing == tks; break end
-   cm = tks.captures
-   push!(token, (cm[1], cm[2]))
+   m = match(rjo, pm)
+   if nothing == m; break end
+   cm = m.captures
+   push!(token, m)
    pm = cm[1]
  end
  return token
 end
+
+m3="君ha僕niケーキwo与えru"
 
 #==
 # This file is a part of Julia. License is MIT: https://julialang.org/license
@@ -34,24 +35,14 @@ julia> m1.captures
 "僕niケーキwo与え"
 "ru"
 
-★★
-function parsej(m::String)
- token = []
- rjo = r"(.+)(wo|ha|ni|ru)"
- pm  = m
- itks = ""
- pos =[]
- while true
-   tks = match(rjo, pm)
-   if nothing == tks; break end
-   cm = tks.captures
-   push!(token, (cm[1], cm[2]))
-   pm = cm[1]
- end
- return token
-end
+==#
+#==
+julia> for m in mm
+       println("$(m.offsets)")
+       end
+==#
 
-m3="君ha僕niケーキwo与えru"
+#==
 julia> parsej(m3)
 4-element Array{Any,1}:
 ("君ha僕niケーキwo与え", "ru")
