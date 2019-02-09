@@ -1,0 +1,37 @@
+# in English, keyword is grammatical concept
+# I run.
+[].[+P(S=I, V=run)]
+
+# I have a book
+[].[+P(S=I, V=have, O=book, N=1 )]
+[].[+P(S=I, V=have, O=book, N=5 )]
+
+# 英語の複数形は2以上の個数を示しているが
+# 複数形を導入するとしたらこうかくこにとなりそう 
+
+[].[+P(S=I, V=have, O=book, N=n) ∧ n>=2 ⇒ +P(S=I, V=have, O=books)]
+
+# 冠詞をいれるとしたら
+
+[].[+P(S=I, V=have, Article=a O=book )]
+[].[+P(S=I, V=have, Article=the O=books )]
+[].[+P(S=I, V=have, O=books)]
+
+だろうか。
+意味と文法をまぜると危険。
+
+# ここまででPは文を意味しているだけのような気がする。
+
+[Somebody, Who, Obj].[-St(S=Somebody, V=give, O=Obj, O2=Who],+St(S=Who, V=have, O=Obj)]
+
+#動詞ならこうなる。
+[Somebody, Who, Obj].[-Give(S=Somebody, O=Obj, O2=Who],+Have(S=Who, O=Obj)]
+
+###
+# This is Red.
+[].[+Is(S=This, C=Red)]
+
+
+# Statementにしたほうがよいときは、文の形でunifyすることがあるとき。
+# 文型が同じで違う動詞を問題にしたいとき
+
